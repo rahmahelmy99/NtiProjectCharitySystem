@@ -1,0 +1,12 @@
+// users => register , login ,get user,del user ,get all ,del all,logout ,logout all
+
+//login admin  => add case , show all cases, show single case, delete  case
+
+//login user =>(react) donate to case , Volunteer to case  ,cases that user reacted with
+
+//case =>  userId ,caseName, description ,actions(react)
+
+/*
+actions => donate =>  cardId , Amount of money , date ,userId
+       => volunteer => date ,choose day  ,userId,  ****
+*/

@@ -1,0 +1,50 @@
+<section class="my-5 container">
+    <h2 class="text-primary text-center h1 my-4 w-90 ">Register</h2>
+    <li [ngClass]="{'alert':true, 'alert-primary':apiFlag, 'alert-danger':!apiFlag}" *ngIf="message!=''">
+        {{message}}
+    </li>
+    <form #registerForm="ngForm" (ngSubmit)="handleRegister(registerForm)">
+        <div class="mb-3 rounded-pill">
+            <label>Name</label>
+            <input name="name" placeholder="name" class="form-control rounded-pill h4" required minlength="3" maxlength="10"
+                #name="ngModel" ngModel>
+            <div *ngIf="name.invalid&&(name.dirty||name.touched||registerForm.submitted)"
+                class="alert alert-danger text-left h6 my-3">
+                <li *ngIf="name.errors?.['required']">name is required</li>
+                <li *ngIf="name.errors?.['minlength']">name must be more than 3 chars</li>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label>Email</label>
+            <input name="email" placeholder="Email" class="form-control rounded-pill h4" #email="ngModel" required email ngModel>
+            <div *ngIf="email.invalid&&(email.dirty||email.touched||registerForm.submitted)"
+                class="alert alert-danger text-left h6 my-2">
+                <li *ngIf="email.errors?.['required']">Email is Required</li>
+                <li *ngIf="email.errors?.['email']">Invalid Email Address</li>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label>birthdate</label>
+            <input name="birthDate" placeholder="birthDate" type="date" class="form-control rounded-pill" #birthDate="ngModel"
+                required ngModel>
+            <div *ngIf="birthDate.invalid&&(birthDate.dirty||birthDate.touched||registerForm.submitted)"
+                class="alert alert-danger text-left h6 my-3">
+                <li *ngIf="birthDate.errors?.['required']">Birthdate is Required</li>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label>Password</label>
+            <input name="Password" placeholder="password" type="password" class="form-control rounded-pill" #password="ngModel"
+                required minlength="3" ngModel>
+            <div *ngIf="password.invalid&&(password.dirty||password.touched||registerForm.submitted)"
+                class="alert alert-danger  my-3">
+                <li *ngIf="password.errors?.['required']">Password is Required</li>
+                <li *ngIf="password.errors?.['minlength']">Rassword Must be More Than 3 Chars</li>
+            </div>
+
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary  w-100  h-80 rounded-pill">Register</button>
+        </div>
+    </form>
+</section>

@@ -1,0 +1,44 @@
+<section class="container my-2">
+    <div [ngClass]="{'alert':true, 'alert-primary':apiFlag, 'text-center':true, 'alert-danger':!apiFlag}" *ngIf="message!=''">
+        {{message}}
+    </div>
+    <div class="row justify-content-center my-3">
+        <div class="col-md-4 col-4  p-4" >
+            <img class=" img  justify-center mx-2" width="250" height="250" src="assets/4300622.png" alt="OurCharity">
+        </div>
+    </div>
+    <div class="row justify-content-center my-5">
+        <div class="col-md-6 col-12 bg-light border border-4  rounded-pill p-5 ">
+            <h5 class="text-primary text-center h1 my-4 w-90 ">
+                Log In
+            </h5>
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="mb-3 _6lux">
+                    <input formControlName="email" placeholder="email" class="form-control inputtext _55r1 _6luy rounded-pill">
+                    <div class="alert alert-danger my-3" 
+                        *ngIf="email?.invalid && (email?.dirty || email?.touched || isSubmitted)">
+                        <li *ngIf="email?.errors?.['required']">Email is Required</li>
+                        <li *ngIf="email?.errors?.['email']">Email Invalid Format</li>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <input formControlName="password" placeholder="password" type="password" class="form-control rounded-pill">
+                    <div class="alert alert-danger my-3"
+                    *ngIf="password?.invalid && (password?.dirty || password?.touched || isSubmitted)">
+                        <li *ngIf="password?.errors?.['required']">Password is Required</li>
+                        <li *ngIf="password?.errors?.['minlength']">Password must be more than 3 chars</li>
+                        <li *ngIf="password?.errors?.['maxlength']">Password must be less than 20 chars</li>
+                    </div>
+                </div>
+                <div class="mb-3 text-center">
+                    <button class="btn btn-primary w-100 h3 h-60 rounded-pill">Log In</button>
+                    
+                </div>
+            </form>
+            
+        
+        </div>
+    </div>
+</section>
+
