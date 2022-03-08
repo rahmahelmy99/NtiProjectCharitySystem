@@ -4,9 +4,9 @@ const categoryController = require("../controller/category.controller")
 
 router.post("/addCategory",auth, categoryController.addCategory)
 
-router.get("/allCategory", auth, categoryController.allCategory)
-router.get("/singleCategory", auth, categoryController.singleCategory) 
+// router.get("/allCategory", auth, categoryController.allCategory)
+// router.get("/singleCategory", auth, categoryController.singleCategory) 
 
-router.delete("/delCategory/:id", auth, categoryController.delCategory)
+// router.delete("/delCategory/:id", auth, categoryController.delCategory)
 
 module.exports=router 

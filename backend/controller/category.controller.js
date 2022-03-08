@@ -1,13 +1,12 @@
 const upload = require("../middleware/fileUpload")
 const categoryModel = require("../models/category.model")
 
-class Case{
+class Category{
     static addCategory= async(req,res)=>{
         try{
             req.body.userType = "admin"
-            const caseStatus = new categoryModel({userId:req.user._id, ...req.body})
-            await caseStatus.save()
-            
+            const catStatus = new categoryModel({userId:req.user._id, ...req.body})
+            await catStatus.save()
             res.send({apiStatus:true, data:caseStatus, message:"added category successfully"})            
         }
         catch(e){
@@ -15,4 +14,4 @@ class Case{
         }
     }
 }
-module.exports=categoryModel
+module.exports=Category

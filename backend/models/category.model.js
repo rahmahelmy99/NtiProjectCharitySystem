@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const caseSchema = mongoose.Schema({
+const catSchema = mongoose.Schema({
    
     title:{
         unique:true,
@@ -22,5 +22,5 @@ userSchema.virtual("singleCase", {
     foreignField:"catId"
 })
 
-const Case = mongoose.model("caseStatus",caseSchema)
-module.exports=Case
+const category = mongoose.model("category",catSchema)
+module.exports=category

@@ -6,7 +6,7 @@ class Case{
         try{
             req.body.userType = "admin"
             const caseStatus = new caseModel({userId:req.user._id, ...req.body})
-            // caseStatus.image=req.file.path
+            caseStatus.image=req.file.path
             await caseStatus.save()
             
             res.send({apiStatus:true, data:caseStatus, message:"added case successfully"})            
